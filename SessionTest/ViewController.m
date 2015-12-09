@@ -24,10 +24,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     NSURLSessionConfiguration *cfg = [NSURLSessionConfiguration
                                       defaultSessionConfiguration];
+    NSURLSessionConfiguration *ephemCfg = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    
     cfg = [TwinPrimeSDK defaultSessionConfiguration];
+    ephemCfg = [TwinPrimeSDK sessionConfigurationWithConfiguration: ephemCfg];
+    
     self.SessionOne = [NSURLSession sessionWithConfiguration:cfg];
     
-    self.SessionTwo = [NSURLSession sessionWithConfiguration:cfg];
+    self.SessionTwo = [NSURLSession sessionWithConfiguration:ephemCfg];
 }
 
 - (IBAction)Fetch:(UIButton *)sender {
