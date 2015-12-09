@@ -33,6 +33,7 @@
 - (IBAction)Fetch:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString: self.ToGet.text];
     if (!url){
+        NSLog(@"Nothing to see here");
         return;
     } else {
         if ([self.SessionSelect selectedSegmentIndex] == 0){
